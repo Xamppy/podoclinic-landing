@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { ParallaxBackground, FloatingElement } from '../ui/ParallaxBackground';
 import { useStaggeredAnimation } from '../../hooks/useScrollAnimation';
 import { animations } from '../../lib/utils';
+import { AppGallery } from '../ui/AppGallery';
 
 const features = [
   {
@@ -61,33 +62,16 @@ const features = [
     color: 'from-purple-500 to-purple-600',
     bgColor: 'bg-purple-50',
   },
+
   {
     id: 4,
-    title: 'Facturación Electrónica',
-    description: 'Genera facturas automáticamente y cumple con la normativa chilena.',
+    title: 'Dashboard y Alertas',
+    description: 'Visualiza información clave de tu clínica con alertas inteligentes.',
     details: [
-      'Facturación electrónica certificada por SII',
-      'Generación automática desde citas',
-      'Múltiples formas de pago integradas',
-      'Reportes financieros detallados'
-    ],
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-      </svg>
-    ),
-    color: 'from-orange-500 to-orange-600',
-    bgColor: 'bg-orange-50',
-  },
-  {
-    id: 5,
-    title: 'Reportes y Estadísticas',
-    description: 'Obtén insights valiosos sobre tu negocio con reportes detallados.',
-    details: [
-      'Dashboard con métricas en tiempo real',
-      'Reportes de ingresos y rentabilidad',
-      'Análisis de pacientes y tratamientos',
-      'Exportación a Excel y PDF'
+      'Alertas de insumos que se están agotando',
+      'Visualización de citas del día en curso',
+      'Resumen de actividades diarias',
+      'Exportación de reportes básicos'
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,14 +82,14 @@ const features = [
     bgColor: 'bg-indigo-50',
   },
   {
-    id: 6,
-    title: 'Comunicación con Pacientes',
-    description: 'Envía recordatorios y mantén comunicación directa vía WhatsApp.',
+    id: 5,
+    title: 'Recordatorios Automáticos',
+    description: 'Sistema de notificaciones por email para mantener informados a tus pacientes.',
     details: [
-      'Integración nativa con WhatsApp Business',
-      'Recordatorios automáticos de citas',
-      'Campañas de marketing personalizadas',
-      'Encuestas de satisfacción automáticas'
+      'Recordatorios automáticos por email',
+      'Configuración de horarios de envío',
+      'Plantillas personalizables de mensajes',
+      'Historial de notificaciones enviadas'
     ],
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -285,6 +269,25 @@ export function Features() {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* App Screenshots Gallery */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          variants={animations.fadeInUp}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <div className="text-center mb-12">
+            <h3 className="font-section-title text-[#2C6145] mb-4 text-balance">
+              Conoce la Aplicación
+            </h3>
+            <p className="font-subtitle text-[#495057] max-w-2xl mx-auto text-balance">
+              Explora las diferentes pantallas y funcionalidades de Podoclinic a través de estas capturas de la aplicación.
+            </p>
+          </div>
+          <AppGallery />
         </motion.div>
       </div>
     </section>
